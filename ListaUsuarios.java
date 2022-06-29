@@ -6,18 +6,18 @@ public class ListaUsuarios {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		String id, psw;		// Variables utilizadas para validaci髇 de condiciones de longitud/existencia
+		String id, psw;		// Variables utilizadas para validaci贸n de condiciones de longitud/existencia
 		char [] arr;
 		char fin;
-		HashMap<String, String> usuarios = new HashMap<String, String>();  //Creaci髇 de variable de almacenamiento de usuarios
+		HashMap<String, String> usuarios = new HashMap<String, String>();  //Creaci贸n de variable de almacenamiento de usuarios
 		//  Bucle por el cual pulsando la 'S' o la 's' al final del registro se continua registrando mas usuarios
 		do{		
-			// Introducci髇 de id y validaci髇 del mismo
+			// Introducci贸n de id y validaci贸n del mismo
 			do{		
 			System.out.print("Indroduzca el id de usuario, debe contener 8 caractres: ");
 			id = sc.nextLine();
 			arr = id.toCharArray();	
-			// Comprobaci髇 de que id no existe ya. Si existe se solicita un nuevo id.
+			// Comprobaci贸n de que id no existe ya. Si existe se solicita un nuevo id.
 			while(usuarios.containsKey(id)) { 		 
 				System.out.print("El id introducido ya existe, introduzca un nuevo id de 8 caracteres: ");
 				id = sc.nextLine();
@@ -25,46 +25,41 @@ public class ListaUsuarios {
 			}
 		}while(arr.length != 8); 		
 		
-		// Introducci髇 de contrase馻 y validaci髇 de la misma
+		// Introducci贸n de contrase帽a y validaci贸n de la misma
 		do {
-			System.out.print("Introduzca la contrase馻 para el nuevo id, debe contener 8 caracteres: ");
+			System.out.print("Introduzca la contrase帽a para el nuevo id, debe contener 8 caracteres: ");
 			psw = sc.nextLine();
 			arr = psw.toCharArray();
 		}while(arr.length != 8); 	
 		
-		usuarios.put(id,psw); 			// Registro de id y contrase馻
+		usuarios.put(id,psw); 			// Registro de id y contrase帽a
 		System.out.println("Usuario registrado correctamente.");
 		System.out.print("Para registrar mas usuarios pulse la tecla 'S', para terminar pulse cualquuier otra letra:  ");
 		fin = sc.next().charAt(0);
 		id = sc.nextLine(); // Lectura de teclado para limpiar intro
 		}while(fin =='s' || fin =='S');    
 		
-	//  Comprobaci髇 de que se guardan correctamente los id/psw
-		System.out.println("Lista de id / contrase馻s registradas: ");  
-		System.out.println(usuarios); // imprimir por pantalla todos los id, contrase馻
+	//  Comprobaci贸n de que se guardan correctamente los id/psw
+		System.out.println("Lista de id / contrase帽as registradas: ");  
+		System.out.println(usuarios); // imprimir por pantalla todos los id, contrase帽a
 		
-		
-		 /* Codigo para iniciar sesi髇
-		  * 
-		  * 
-		  * 
-		  * 
-		  
-		String nom, pword;
+		 String nom, pword;
+		//bucle para iniciar sesion
 		do {
+		// introducci贸n de id por el usuario y comprobaci贸n
 		do {
 		System.out.print("Introduzca su id de usuario: ");
 		nom = sc.next();
 		}while(!usuarios.containsKey(nom));
 		pword = "0";
+		//Introducci贸n de psw y comprobaci贸n con 3 intentos 
 		for(int i=0; i<3 && !pword.equals(usuarios.get(nom)); i++){
-		System.out.print("Introduzca su contrase馻: ");
+		System.out.print("Introduzca su contrase帽a: ");
 		pword = sc.next();
 		}
 		}while(!pword.equals(usuarios.get(nom)));
-		System.out.println("Iniciando sesi髇.");
+		System.out.println("Iniciando sesi贸n.");
 		
-		  */
 		sc.close();
 
 	}
